@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  background: #f8fafc;
+  color: #0f172a;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Leaflet overrides for light theme */
+.leaflet-container {
+  background: #e2e8f0;
+  border-radius: 0.75rem;
+  font-family: 'Inter', sans-serif;
+}
+.leaflet-popup-content-wrapper {
+  background: #ffffff;
+  color: #0f172a;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  border-radius: 10px;
+}
+.leaflet-popup-tip { background: #ffffff; }
+.leaflet-control-zoom a {
+  background: #ffffff !important;
+  color: #475569 !important;
+  border-color: #e2e8f0 !important;
+}
+
+/* Thin scrollbar */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: #f1f5f9; }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+/* Trace animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(3px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.trace-row { animation: fadeIn 0.15s ease; }
+
+/* Animated Polyline for Map */
+.animated-path {
+  stroke-dasharray: 12, 12;
+  animation: movePath 1.5s linear infinite;
+}
+
+@keyframes movePath {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+
+/* Card */
+.card {
+  @apply bg-white rounded-xl border border-gray-200 shadow-sm;
+}
+
+/* Badge */
+.badge {
+  @apply inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium;
+}
+
+/* Nav link active */
+.nav-active {
+  @apply bg-primary-50 text-primary-700 border-r-2 border-primary-600;
+}
+.nav-item {
+  @apply flex items-center gap-3 px-4 py-2.5 text-sm font-medium text-gray-600
+         hover:bg-gray-100 hover:text-gray-900 transition-colors cursor-pointer rounded-lg mx-2;
+}
+
+/* Pill tabs */
+.pill-tab {
+  @apply px-3 py-1.5 text-xs font-medium rounded-lg transition-colors;
+}
+.pill-active {
+  @apply bg-primary-600 text-white shadow-sm;
+}
+.pill-inactive {
+  @apply text-gray-500 hover:bg-gray-100 hover:text-gray-700;
+}
+
+/* Input */
+.inp {
+  @apply w-full bg-gray-50 border border-gray-200 rounded-lg px-3 py-2 text-sm
+         focus:outline-none focus:ring-2 focus:ring-primary-200 focus:border-primary-500
+         transition-colors;
+}
+
+/* Button variants */
+.btn-primary {
+  @apply flex items-center justify-center gap-2 bg-primary-600 hover:bg-primary-700
+         text-white text-sm font-semibold px-4 py-2.5 rounded-lg transition-colors shadow-sm;
+}
+.btn-secondary {
+  @apply flex items-center justify-center gap-2 bg-white hover:bg-gray-50
+         text-gray-700 text-sm font-medium px-4 py-2.5 rounded-lg border border-gray-200
+         transition-colors shadow-sm;
+}
+.btn-ghost {
+  @apply flex items-center justify-center gap-2 text-gray-500 hover:text-gray-700
+         hover:bg-gray-100 text-sm font-medium px-3 py-2 rounded-lg transition-colors;
+}
+
+/* Section header */
+.section-title {
+  @apply text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2;
+}
+
+/* Info box per CO */
+.co-banner {
+  @apply rounded-xl p-4 border text-sm leading-relaxed;
+}
